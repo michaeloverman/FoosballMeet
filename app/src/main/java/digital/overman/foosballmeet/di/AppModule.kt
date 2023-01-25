@@ -18,9 +18,9 @@ object AppModule {
 //        return StandingsViewModel(repository)
 //    }
 //
-//    @Provides
-//    @Singleton
-//    fun providePlayersRepository(): PlayersRepository {
-//        return PlayersRepository()
-//    }
+    @Provides
+    @Singleton
+    fun providePlayersRepository(): PlayersRepository {
+        return PlayersRepository()
+    }
 }
