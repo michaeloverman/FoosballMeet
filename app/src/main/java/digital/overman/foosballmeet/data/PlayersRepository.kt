@@ -2,12 +2,15 @@ package digital.overman.foosballmeet.data
 
 import android.util.Log
 import digital.overman.foosballmeet.data.PlayersRepository.players
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 object PlayersRepository {
     val players: MutableList<Player> = mutableListOf()
     val matches: MutableList<Match> = mutableListOf()
 
+    val playerList: Flow<List<Player>> = flow { emit(players) }
     init {
         addMatch(Match("Ada", 5, "Bob", 6))
         addMatch(Match("Cal", 5, "Dad", 6))
