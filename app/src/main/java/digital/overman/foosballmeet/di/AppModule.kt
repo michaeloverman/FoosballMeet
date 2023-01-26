@@ -21,6 +21,6 @@ object AppModule {
     @Provides
     @Singleton
     fun providePlayersRepository(): PlayersRepository {
-        return PlayersRepository()
+        return PlayersRepository
     }
 }
