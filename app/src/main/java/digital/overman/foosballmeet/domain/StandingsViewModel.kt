@@ -6,7 +6,7 @@ import digital.overman.foosballmeet.data.PlayersRepository
 import javax.inject.Inject
 
 class StandingsViewModel @Inject constructor(private val repository: PlayersRepository) : ViewModel() {
-    val players: List<Player> = repository.players
+    val players: List<Player> = repository.getPlayersSortedByComparator()
     val playerList = players.joinToString(separator = " \n")
 
     init {

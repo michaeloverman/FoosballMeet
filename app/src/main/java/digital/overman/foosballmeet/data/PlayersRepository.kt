@@ -1,6 +1,7 @@
 package digital.overman.foosballmeet.data
 
 import android.util.Log
+import digital.overman.foosballmeet.data.PlayersRepository.players
 import javax.inject.Inject
 
 object PlayersRepository {
@@ -37,7 +38,12 @@ object PlayersRepository {
         Log.d("REPO", "Returning player ${p.name}")
         return p
     }
-    fun getPlayersSortedByPercentage(): List<Player> = players.sortedBy { it.winPercentage() }
+    fun getPlayersSortedByPercentage(): List<Player> = players.sortedBy { it.winPercentage() }.reversed()
+
+    fun getPlayersSortedByComparator(): List<Player> {
+        return players.sortedWith(compareBy<Player> { it.winPercentage() }.thenBy { it.matchCount } ).reversed()
+    }
 
     fun getPlayersSortedByWinCount(): List<Player> = players.sortedBy { it.winCount }
+
 }

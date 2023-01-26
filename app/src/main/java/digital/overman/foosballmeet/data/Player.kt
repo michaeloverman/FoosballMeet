@@ -16,9 +16,9 @@ data class Player(
 
     fun didWinMatch(match: Match): Boolean = name == match.winnerName
 
-    fun winPercentage(): Float = matchCount.toFloat() / winCount.toFloat()
+    fun winPercentage(): Float = winCount.toFloat() / matchCount.toFloat()
 
     override fun toString(): String {
-        return "$name has won $winCount games out of $matchCount"
+        return "$name has a ${winPercentage()} win %"
     }
 }
