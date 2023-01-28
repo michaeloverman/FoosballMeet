@@ -3,13 +3,17 @@ package digital.overman.foosballmeet.data
 import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 object PlayersRepository {
     val players: MutableList<Player> = mutableListOf()
     val matches: MutableList<Match> = mutableListOf()
 
     val playerList: Flow<List<Player>>
-        get() = flow { emit(players) }
+        get() = flow {
+            // This can query remote, for example, on a timer, and update those changes too
+            emit(players)
+        }
     init {
         addMatch(Match("Ada", 5, "Bob", 6))
         addMatch(Match("Cal", 5, "Dad", 6))
@@ -28,8 +32,10 @@ object PlayersRepository {
         // add match to each player
         one.addMatch(match)
         two.addMatch(match)
+
     }
 
+    // This returns a player from the list, or updates the list with a new player if necessary
     fun getPlayer(name: String): Player {
         var p = players.singleOrNull { it.name == name }
         if (p == null) {
@@ -43,7 +49,7 @@ object PlayersRepository {
     fun getPlayersSortedByPercentage(): List<Player> = players.sortedBy { it.winPercentage() }.reversed()
 
     fun getPlayersSortedByComparator(): List<Player> {
-        return players.sortedWith(compareBy<Player> { it.winPercentage() }.thenBy { it.matchCount } ).reversed()
+        return players.sortedWith(compareBy<Player> { it.winCount }.thenBy { it.winPercentage() } ).reversed()
     }
 
     fun getPlayersSortedByWinCount(): List<Player> = players.sortedBy { it.winCount }

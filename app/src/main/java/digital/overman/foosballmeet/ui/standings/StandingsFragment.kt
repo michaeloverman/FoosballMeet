@@ -1,6 +1,7 @@
 package digital.overman.foosballmeet.ui.standings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,15 +26,17 @@ class StandingsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.standings_fragment, container, false)
-//        val playerListObserver = Observer<String> { newList ->
-//
-//            binding.playerlistTv.text = newList
-//        }
+        val playerListObserver = Observer<String> { newList ->
+            Log.d(Companion.TAG, "New player list observed")
+            binding.playerlistTv.text = newList
+        }
         val dumbyObserver = Observer<Int> { newInt ->
+            Log.d(Companion.TAG, "New dumby value observed")
             binding.dumbyTv.text = newInt.toString()
         }
 
         viewModel.dumby.observe(viewLifecycleOwner, dumbyObserver)
+        viewModel.players.observe(viewLifecycleOwner, playerListObserver)
 
         binding.fab.setOnClickListener { viewModel.addMatchClicked() }
 
@@ -44,5 +47,9 @@ class StandingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
+    }
+
+    companion object {
+        private const val TAG = "StandingsFragment"
     }
 }
