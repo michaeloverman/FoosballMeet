@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="standings_fragment">StandingsFragment</string>
     <string name="add_new_match">Add new match</string>
+    <string name="starting_list_empty">starting list empty</string>
+    <string name="loading">loading...</string>
 </resources>
