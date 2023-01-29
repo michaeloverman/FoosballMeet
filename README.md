@@ -4,20 +4,20 @@ At TMG, we love foosball. Most arguments over who is the best are settled on the
 
 ## Data structure
 Person,Score,Person,Score
-Amos,4,Diego,5
-Amos,1,Diego,5
-Amos,2,Diego,5
-Amos,0,Diego,5
-Amos,6,Diego,5
-Amos,5,Diego,2
-Amos,4,Diego,0
-Joel,4,Diego,5
-Tim,4,Amos,5
-Tim,5,Amos,2
-Amos,3,Tim,5
-Amos,5,Tim,3
-Amos,5,Joel,4
-Joel,5,Tim,2
+Amos,4,Diego,5  
+Amos,1,Diego,5  
+Amos,2,Diego,5  
+Amos,0,Diego,5  
+Amos,6,Diego,5  
+Amos,5,Diego,2  
+Amos,4,Diego,0  
+Joel,4,Diego,5  
+Tim,4,Amos,5  
+Tim,5,Amos,2  
+Amos,3,Tim,5  
+Amos,5,Tim,3  
+Amos,5,Joel,4  
+Joel,5,Tim,2  
 
 ## Notes
 Implement a rankings view which lists users in order of their ranking (by number of games played, games won).
@@ -40,10 +40,10 @@ My first big decision was how to manage/store/manipulate/understand the data its
 Compose: I decided not to use this mostly because Bryan told me TMG is not using Compose. It was interesting remembering how to create an activity/fragment structure from the bottom up.
 
 # Todo
-Obviously this needs much more:
-Unit & integration testing
-A11y
-Internationalization
-Much prettier design
-Options for different sorting methods
-Click through to see individual's detailed statistics and game history
+Obviously this needs much more:  
+Unit & integration testing  
+A11y  
+Internationalization  
+Much prettier design  
+Options for different sorting methods  
+Click through to see individual's detailed statistics and game history  
