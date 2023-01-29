@@ -1,9 +1,12 @@
 package digital.overman.foosballmeet.ui
 
+import android.R.id.edit
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -38,6 +41,15 @@ class AddGameFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.nameOne.requestFocus()
+        val imgr: InputMethodManager = requireActivity()
+            .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imgr.showSoftInput(binding.nameOne, InputMethodManager.SHOW_IMPLICIT)
     }
 
     companion object {

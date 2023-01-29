@@ -11,8 +11,7 @@ import javax.inject.Inject
 
 const val TAG = "StandingsViewModel"
 class StandingsViewModel : ViewModel() {
-    @Inject
-    var repository = PlayersRepository
+    private var repository = PlayersRepository
     private val _players = MutableLiveData(emptyList<Player>())
     val players: LiveData<List<Player>>
         get() = _players
