@@ -2,12 +2,9 @@ package digital.overman.foosballmeet.ui.standings
 
 import android.content.res.Resources
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import digital.overman.foosballmeet.R
 import digital.overman.foosballmeet.data.Player
@@ -31,17 +28,12 @@ class PlayerAdapter : RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
     override fun getItemCount() = differ.currentList.size
 
     inner class PlayerViewHolder : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(player: Player) {
             binding.name.text = player.name
             binding.wins.text = player.winCount.toString()
             binding.losses.text = (player.matchCount - player.winCount).toString()
             val res = this.itemView.resources
             binding.percentage.text = String.format(res.getString(R.string.player_percentage),(player.winPercentage() * 100).toInt())
-//            itemView.findViewById<TextView>(R.id.name).text = player.name
-//            itemView.findViewById<TextView>(R.id.wins).text = player.winCount.toString()
-//            itemView.findViewById<TextView>(R.id.losses).text = (player.matchCount - player.winCount).toString()
-//            itemView.findViewById<TextView>(R.id.name).text = player.winPercentage().toString()
         }
     }
 

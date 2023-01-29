@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,6 +31,7 @@ class StandingsFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.standings_fragment, container, false)
 
+        // Connect the recycler view to the adapter and layout
         binding.apply {
             reduceReuseRecycle.apply {
                 layoutManager = LinearLayoutManager(activity)
@@ -39,14 +39,14 @@ class StandingsFragment : Fragment() {
             }
         }
 
-        val playerListObserver = Observer<List<Player>> { list ->
-            Log.d(TAG, "New player list observed: ${list.joinToString { "${it.name}, " }}")
-//            binding.playerlistTv.text = viewModel.getPlayerList()
+        // Observe the player list in the view model and update the view on change
+        val playerListObserver = Observer<List<Player>> {
+            Log.d(TAG, "New player list observed")
             playerAdapter.differ.submitList(viewModel.getPlayerList())
         }
         viewModel.players.observe(viewLifecycleOwner, playerListObserver)
 
-
+        // Go to add game fragment on FAB click
         binding.fab.setOnClickListener {
             Log.d(TAG, "fragment trans to add game")
             parentFragmentManager.beginTransaction()
@@ -54,6 +54,7 @@ class StandingsFragment : Fragment() {
                 .addToBackStack("add_game_fragment")
                 .commit()
         }
+
         return binding.root
     }
 
