@@ -1,6 +1,5 @@
 package digital.overman.foosballmeet.ui
 
-import android.R.id.edit
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +18,7 @@ import digital.overman.foosballmeet.domain.StandingsViewModel
 
 class AddGameFragment : Fragment() {
 
-    private val viewModel: StandingsViewModel by viewModels()
+    private val viewModel: StandingsViewModel by viewModels { StandingsViewModel.Factory }
     private lateinit var binding: FragmentAddGameBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

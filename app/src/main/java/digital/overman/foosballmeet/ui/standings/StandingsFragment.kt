@@ -18,7 +18,7 @@ import digital.overman.foosballmeet.ui.AddGameFragment
 
 class StandingsFragment : Fragment() {
 
-    private val viewModel: StandingsViewModel by viewModels()
+    private val viewModel: StandingsViewModel by viewModels { StandingsViewModel.Factory }
     private lateinit var binding: StandingsFragmentBinding
     private val playerAdapter by lazy { PlayerAdapter() }
 
