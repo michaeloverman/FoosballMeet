@@ -1,4 +1,4 @@
-package digital.overman.foosballmeet.ui
+package digital.overman.foosballmeet.ui.standings
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import digital.overman.foosballmeet.R
 import digital.overman.foosballmeet.databinding.StandingsFragmentBinding
 import digital.overman.foosballmeet.domain.StandingsViewModel
+import digital.overman.foosballmeet.ui.AddGameFragment
 
 class StandingsFragment : Fragment() {
 

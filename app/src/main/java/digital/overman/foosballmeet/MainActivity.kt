@@ -2,10 +2,8 @@ package digital.overman.foosballmeet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import dagger.hilt.android.AndroidEntryPoint
-import digital.overman.foosballmeet.ui.AddGameFragment
-import digital.overman.foosballmeet.ui.StandingsFragment
+import digital.overman.foosballmeet.ui.standings.StandingsFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
