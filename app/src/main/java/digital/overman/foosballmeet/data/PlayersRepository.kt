@@ -3,6 +3,7 @@ package digital.overman.foosballmeet.data
 import android.util.Log
 
 object PlayersRepository {
+    // Just local, temporary storage, for this case (same reason I just made this an object)
     val players: MutableList<Player> = mutableListOf()
     val matches: MutableList<Match> = mutableListOf()
 

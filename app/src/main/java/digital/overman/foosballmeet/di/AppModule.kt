@@ -12,12 +12,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideStandingsViewModel(repository: PlayersRepository): StandingsViewModel {
-//        return StandingsViewModel(repository)
-//    }
-//
     @Provides
     @Singleton
     fun providePlayersRepository(): PlayersRepository {
