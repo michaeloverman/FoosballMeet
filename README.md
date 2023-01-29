@@ -30,7 +30,8 @@ A robust data store is not required, so an in-memory collection may be used inst
 Short notes about the decision process in getting this up and running
 
 ## Assumptions
-There will always be a winner and a loser, no ties
+There will always be a winner and a loser, no ties.
+The means by which to determine the rankings are not fully defined (number of games played, games won is all that is provided). Is the total wins the determining factor? Or does win percentage play a role? If one player has played 200 games and won 20 of them, is that player higher ranked than the one who has played 20 games and won 19 of them? I have implemented the ranking using a two level approach, first by games won, and ties are broken by winning percentage. (So, yes, in my example above, the prolific loser is higher ranked than the infrequent but consistent winner.)
 
 ## Data
 My first big decision was how to manage/store/manipulate/understand the data itself. My initial thought was to use a database anyway, and just store each game result in a table. Then SQL commands could parse, structure and rearrange that data as needed. This still might ultimately be the way to go for this, long term. But in the end I decided that storing each person's results within themselves would be easier, and eliminate the need to set up the whole database infrastructure, and also not require a two day review of SQL in order to get what I need.
