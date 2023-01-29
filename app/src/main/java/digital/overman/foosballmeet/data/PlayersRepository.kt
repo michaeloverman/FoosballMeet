@@ -15,10 +15,10 @@ object PlayersRepository {
             emit(players)
         }
     init {
-        addMatch(Match("Ada", 5, "Bob", 6))
-        addMatch(Match("Cal", 5, "Dad", 6))
-        addMatch(Match("Ice Cream", 5, "Ada", 6))
-        addMatch(Match("Cal", 5, "Bob", 6))
+//        addMatch(Match("Ada", 5, "Bob", 6))
+//        addMatch(Match("Cal", 5, "Dad", 6))
+//        addMatch(Match("Ice Cream", 5, "Ada", 6))
+//        addMatch(Match("Cal", 5, "Bob", 6))
 
         println("This Repository exists and has ${matches.size} matches saved")
     }
@@ -33,6 +33,7 @@ object PlayersRepository {
         one.addMatch(match)
         two.addMatch(match)
 
+        println("This Repository exists and has ${matches.size} matches saved")
     }
 
     // This returns a player from the list, or updates the list with a new player if necessary

@@ -8,16 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.standings.StandingsFragment">
+        tools:context=".ui.StandingsFragment">
 
-        <TextView
-            android:id="@+id/dumby_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="24sp"
-            android:textColor="@color/BurlyWood"
-            />
         <TextView
             android:id="@+id/playerlist_tv"
             android:layout_width="wrap_content"

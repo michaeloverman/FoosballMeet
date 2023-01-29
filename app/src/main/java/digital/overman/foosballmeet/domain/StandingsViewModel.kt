@@ -8,9 +8,7 @@ import androidx.lifecycle.viewModelScope
 import digital.overman.foosballmeet.data.Match
 import digital.overman.foosballmeet.data.PlayersRepository
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 const val TAG = "StandingsViewModel"
 class StandingsViewModel : ViewModel() {
@@ -19,10 +17,6 @@ class StandingsViewModel : ViewModel() {
     val players: LiveData<String>
         get() = _players
 
-    private val _dumby = MutableLiveData(0)
-    val dumby: LiveData<Int>
-        get() = _dumby
-//        get() = players.joinToString(separator = " \n")
     init {
         viewModelScope.launch {
             repository.playerList
@@ -34,17 +28,23 @@ class StandingsViewModel : ViewModel() {
         }
     }
 
-    fun getPlayerList() {
+    fun getPlayerList(): String {
+        return repository.getPlayersSortedByComparator().joinToString("\n")
     }
-    fun addMatchClicked() {
-        val match = Match("Ada", Random.nextInt(0,8), "Dad", Random.nextInt(2,10))
-        repository.addMatch(match)
-        Log.d(TAG, "Repository has ${repository.matches.size} matches")
-//        getPlayerList()
-        _players.value = repository.getPlayersSortedByComparator().joinToString(separator = "\n")
-        _dumby.value = _dumby.value?.inc()
-        Log.d(TAG, "_Dumby: ${_dumby.value.toString()}")
-        Log.d(TAG, "Dumby: ${dumby.value.toString()}")
-    }
+//    fun addButtonClicked() {
+//        val match = Match("Ada", Random.nextInt(0,8), "Dad", Random.nextInt(2,10))
+//        repository.addMatch(match)
+//        Log.d(TAG, "Repository has ${repository.matches.size} matches")
+////        getPlayerList()
+//        _players.value = repository.getPlayersSortedByComparator().joinToString(separator = "\n")
+//        _dumby.value = _dumby.value?.inc()
+//        Log.d(TAG, "_Dumby: ${_dumby.value.toString()}")
+//        Log.d(TAG, "Dumby: ${dumby.value.toString()}")
+//    }
 
+    fun addMatch(match: Match) {
+        Log.d(TAG, "adding match to repo")
+        repository.addMatch(match)
+        _players.value = repository.getPlayersSortedByComparator().joinToString(separator = "\n")
+    }
 }
