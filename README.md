@@ -37,5 +37,13 @@ The means by which to determine the rankings are not fully defined (number of ga
 My first big decision was how to manage/store/manipulate/understand the data itself. My initial thought was to use a database anyway, and just store each game result in a table. Then SQL commands could parse, structure and rearrange that data as needed. This still might ultimately be the way to go for this, long term. But in the end I decided that storing each person's results within themselves would be easier, and eliminate the need to set up the whole database infrastructure, and also not require a two day review of SQL in order to get what I need.
 
 ## Rejections
-Compose: I decided not to use this mostly because Bryan told me TMG is not using Compose. But it was also good to 'remember' how to create an activity/fragment structure from the bottom up, something I've not done in over a year.
+Compose: I decided not to use this mostly because Bryan told me TMG is not using Compose. It was interesting remembering how to create an activity/fragment structure from the bottom up.
 
+# Todo
+Obviously this needs much more:
+Unit & integration testing
+A11y
+Internationalization
+Much prettier design
+Options for different sorting methods
+Click through to see individual's detailed statistics and game history
