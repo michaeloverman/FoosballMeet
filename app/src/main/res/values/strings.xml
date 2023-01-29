@@ -5,10 +5,10 @@
     <string name="standings_fragment">StandingsFragment</string>
     <string name="add_new_match">Add new match</string>
     <string name="starting_list_empty">starting list empty</string>
-    <string name="loading">loading...</string>
     <string name="player_1_name">Player 1 Name</string>
     <string name="player_2_name">Player 2 Name</string>
     <string name="player_1_score">Player 1 Score</string>
     <string name="player_2_score">Player 2 Score</string>
     <string name="save_game_button">Save game button</string>
+    <string name="player_percentage">%d %%</string>
 </resources>

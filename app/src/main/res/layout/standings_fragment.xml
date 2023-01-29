@@ -14,7 +14,7 @@
             android:id="@+id/playerlist_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/loading"
+            android:text="Name W L %"
             android:textSize="24sp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"

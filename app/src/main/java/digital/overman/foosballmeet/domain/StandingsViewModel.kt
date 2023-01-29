@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import digital.overman.foosballmeet.data.Match
+import digital.overman.foosballmeet.data.Player
 import digital.overman.foosballmeet.data.PlayersRepository
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -13,23 +14,23 @@ import kotlinx.coroutines.launch
 const val TAG = "StandingsViewModel"
 class StandingsViewModel : ViewModel() {
     var repository = PlayersRepository
-    private val _players = MutableLiveData("loading...")
-    val players: LiveData<String>
+    private val _players = MutableLiveData(emptyList<Player>())
+    val players: LiveData<List<Player>>
         get() = _players
 
-    init {
-        viewModelScope.launch {
-            repository.playerList
-                .distinctUntilChanged()
-                .collect { list ->
-                Log.d(TAG, "player list collected")
-                _players.value = list.joinToString(separator = "\n")
-            }
-        }
-    }
+//    init {
+//        viewModelScope.launch {
+//            repository.playerList
+//                .distinctUntilChanged()
+//                .collect { list ->
+//                Log.d(TAG, "player list collected")
+//                _players.value = list
+//            }
+//        }
+//    }
 
-    fun getPlayerList(): String {
-        return repository.getPlayersSortedByComparator().joinToString("\n")
+    fun getPlayerList(): List<Player> {
+        return repository.getPlayersSortedByComparator()
     }
 //    fun addButtonClicked() {
 //        val match = Match("Ada", Random.nextInt(0,8), "Dad", Random.nextInt(2,10))
@@ -45,6 +46,6 @@ class StandingsViewModel : ViewModel() {
     fun addMatch(match: Match) {
         Log.d(TAG, "adding match to repo")
         repository.addMatch(match)
-        _players.value = repository.getPlayersSortedByComparator().joinToString(separator = "\n")
+        _players.value = repository.getPlayersSortedByComparator()
     }
 }
