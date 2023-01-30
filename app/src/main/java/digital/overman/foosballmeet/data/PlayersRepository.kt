@@ -1,8 +1,13 @@
 package digital.overman.foosballmeet.data
 
 import android.util.Log
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
-object PlayersRepository {
+@Module
+@InstallIn(SingletonComponent::class)
+class PlayersRepository {
     // Just local, temporary storage, for this case (same reason I just made this an object)
     val players: MutableList<Player> = mutableListOf()
     val matches: MutableList<Match> = mutableListOf()

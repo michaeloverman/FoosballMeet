@@ -10,15 +10,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import digital.overman.foosballmeet.R
 import digital.overman.foosballmeet.data.Player
 import digital.overman.foosballmeet.databinding.StandingsFragmentBinding
 import digital.overman.foosballmeet.domain.StandingsViewModel
 import digital.overman.foosballmeet.ui.AddGameFragment
 
+@AndroidEntryPoint
 class StandingsFragment : Fragment() {
 
-    private val viewModel: StandingsViewModel by viewModels { StandingsViewModel.Factory }
+    private val viewModel: StandingsViewModel by viewModels()
     private lateinit var binding: StandingsFragmentBinding
     private val playerAdapter by lazy { PlayerAdapter() }
 

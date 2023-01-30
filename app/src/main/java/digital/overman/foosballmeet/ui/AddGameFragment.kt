@@ -10,15 +10,17 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import digital.overman.foosballmeet.R
 import digital.overman.foosballmeet.data.Match
 import digital.overman.foosballmeet.databinding.FragmentAddGameBinding
 import digital.overman.foosballmeet.domain.StandingsViewModel
 
 
+@AndroidEntryPoint
 class AddGameFragment : Fragment() {
 
-    private val viewModel: StandingsViewModel by viewModels { StandingsViewModel.Factory }
+    private val viewModel: StandingsViewModel by viewModels()
     private lateinit var binding: FragmentAddGameBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

@@ -45,5 +45,6 @@ Unit & integration testing
 A11y  
 Internationalization  
 Much prettier design  
+Landscape layouts and rotation handling  
 Options for different sorting methods  
 Click through to see individual's detailed statistics and game history  
